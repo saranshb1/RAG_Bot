@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "\"python.defaultInterpreterPath\"": "\"F:\\Work\\def_py_env\\Scripts\\python.exe\""
+    },
+    "files.exclude": {
+        "**/.git": false
+    }
+}
