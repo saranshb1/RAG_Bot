@@ -15,11 +15,6 @@ from PDFLoader import docs_loader
 doc_final = docs_loader()
 
 
-# os.environ["OPENAI_API_KEY"] = 'sk-f5DUju_Ukz3m75RDQqf_Fmm3FG4zmreP6YmbSLn94bT3BlbkFJ4lUtesW3CzyPit3p8T3sFy0b35KakLNt_ga6tOZ98A'
-# os.environ["OPENAI_API_KEY"] = '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'
-os.environ["HUGGINGFACEHUB_API_KEY"] = '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'
-
-
 #from langchain_openai import ChatOpenAI
 
 #llm = ChatOpenAI(model="gpt-4o-mini")
