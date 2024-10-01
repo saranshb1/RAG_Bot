@@ -3,6 +3,17 @@ import gradio as gr
 from LLMCreator import initialize_LLM
 from PDFConversion.DBCreator import initialize_database
 
+
+list_llm = ["mistralai/Mistral-7B-Instruct-v0.2", "mistralai/Mixtral-8x7B-Instruct-v0.1", "mistralai/Mistral-7B-Instruct-v0.1", \
+    "google/gemma-7b-it","google/gemma-2b-it", \
+    "HuggingFaceH4/zephyr-7b-beta", "HuggingFaceH4/zephyr-7b-gemma-v0.1", \
+    "meta-llama/Llama-2-7b-chat-hf", "microsoft/phi-2", \
+    "TinyLlama/TinyLlama-1.1B-Chat-v1.0", "mosaicml/mpt-7b-instruct", "tiiuae/falcon-7b-instruct", \
+    "google/flan-t5-xxl"
+]
+
+list_llm_simple = [os.path.basename(llm) for llm in list_llm]
+
 def format_chat_history(message, chat_history):
     formatted_chat_history = []
     for user_message, bot_message in chat_history:
@@ -40,7 +51,7 @@ def conversation(qa_chain, message, history):
 
 
 
-def demo():
+def main_bot():
     with gr.Blocks(theme="base") as demo:
         vector_db = gr.State()
         qa_chain = gr.State()
@@ -51,7 +62,7 @@ def demo():
         <h3>Ask any questions about your PDF documents</h3>""")
         gr.Markdown(
         """<b>Note:</b> This AI assistant, using Langchain and open-source LLMs, performs retrieval-augmented generation (RAG) from your PDF documents. \
-        The user interface explicitely shows multiple steps to help understand the RAG workflow. 
+        The user interface explicitly shows multiple steps to help understand the RAG workflow. 
         This chatbot takes past questions into account when generating answers (via conversational memory), and includes document references for clarity purposes.<br>
         <br><b>Warning:</b> This space uses the free CPU Basic hardware from Hugging Face. Some steps and LLM models used below (free inference endpoints) can take some time to generate a reply.
         """)
