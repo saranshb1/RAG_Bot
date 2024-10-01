@@ -1,6 +1,6 @@
 
-from Conversation import demo
+from Conversation import main_bot
 
 if __name__ == "__main__":
-    demo()
+    main_bot()
 
